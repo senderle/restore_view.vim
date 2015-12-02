@@ -1,30 +1,20 @@
-"          FILE: restore_view.vim
-"      Language: vim script
-"    Maintainer: Yichao Zhou (broken.zhou AT gmail dot com)
+"   restore_view.vim
+"
+"   Maintainers: Scott Enderle (scott.enderle at gmail)
+"                Yichao Zhou (broken.zhou at gmail)
 "       Version: 1.3
 "   Description: 
 "       This is a simple script to autosave cursor position and fold
-"       information using vim's mkview.  Although you can easily do this job by
-"       just add serveral line to {.,_}vimrc, write a script plugin can make it
-"       more clean and nice.  We assume you use a new enough Vim to enjoy
-"       these feature. Hope you love it:)
+"       information using vim's mkview. Although you can do this with
+"       a couple of lines in your vimrc, this takes care of a few
+"       possible error conditions. Requires a newish Vim. (TODO: how new?)
 "
-"       Views will be saved when you save/write a file or EXIT VIM.
+"       Views will be saved when you write a file or exit.
 "
-" Suggested Setting:
-"       Please put them in you vimrc file.
+"       This script does not apply any specific view options, so you'll
+"       need to set your own. E.g.: 
+"
 "           set viewoptions=cursor,folds,slash,unix
-"       
-"       Set it in a plugin file looks dirty to me.  So you'd better do it your
-"       self.  This only keywords not in viewoptions is "options". I believe it
-"       does not belong to a view.  If you think you need it, feel free to
-"       put it in.  If you do not want views of some files to be saved, please
-"       set g:loaded_restore_view. The longer time you use, the bigger view
-"       folder you will have.  So if you use UNIX environment, you may need to
-"       use cron to do some clean job.
-"
-"       Most of code is from wiki.
-
 
 if exists("g:loaded_restore_view")
     finish
